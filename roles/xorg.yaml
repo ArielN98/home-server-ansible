@@ -1,0 +1,17 @@
+---
+
+- name: Ensure required packages are installed
+  become: yes
+  pacman:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  loop:  
+    - autorandr
+    - xorg-fonts-100dpi
+    - xorg-fonts-75dpi
+    - xorg-xinit
+    - xorg-server
+    - xorg-sev
+    - mesa
+    - xf86-video-amdgpu

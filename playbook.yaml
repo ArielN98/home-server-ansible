@@ -1,0 +1,27 @@
+- name: Home server playbook
+  hosts: localhost
+  tasks:
+    - name: Register user_id
+      set_fact:
+        user_id: "ariel"
+    
+    - name: Get user home directory
+      changed_when: false
+      register: getent
+      shell: "getent passwd {{ user_id }}  | awk -F: '{ print $6 }'"
+
+    - name: Register user_id
+      set_fact:
+        user_home: "{{ getent.stdout }}"
+    
+    - name: ping host
+      ansible.builtin.ping:
+    - name: Print Message
+      ansible.builtin.debug:
+        msg: Holii
+    - name: Include XOrg task list
+      amsible.builtin.include_tasks: ./roles/xorg.yaml
+    - name: Include ZSH task list
+      ansible.builtin.include_tasks: ./roles/zsh.yaml
+    
+    

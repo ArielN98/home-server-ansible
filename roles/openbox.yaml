@@ -1,0 +1,31 @@
+- name: Install software for openbox
+  become: True
+  pacman:
+    name: "{{ item }}"
+    state: "present"
+  loop:
+    - feh
+    - scim
+    - lxterminal
+#    - xautolock
+    - openbox
+    - obconf
+    - network-manager-applet
+
+- name: Make sure config directory exist
+  file:
+    path: "{{ user_home }}/.config/openbox"
+    state: directory
+    #owner: "{{ config_owner }}"
+    #group: "{{ config_owner_primary_group }}"
+    mode: 0755
+
+
+- name: Use autostart template for autostart config file for openbox
+  template:
+    src: openbox-files/autostart.j2
+    dest: "{{ user_home }}/.config/openbox/autostart"
+    #owner: "{{ config_owner }}"
+    #group: "{{ config_owner_primary_group }}"
+    mode: 0755
+    
