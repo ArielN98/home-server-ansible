@@ -12,6 +12,6 @@
     - xorg-fonts-75dpi
     - xorg-xinit
     - xorg-server
-    - xorg-sev
+#    - xorg-sev
     - mesa
     - xf86-video-amdgpu

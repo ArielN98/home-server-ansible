@@ -19,7 +19,7 @@
     group: "{{ user_id }}"
     mode: 0755
     owner: "{{ user_id }}"
-    src: zsh
+    src: zsh-files/zsh
 
 - name: Copy main config file
   copy:
@@ -27,7 +27,7 @@
     group: "{{ user_id }}"
     mode: 0644
     owner: "{{ user_id }}"
-    src: ".zshrc"
+    src: "zsh-files/.zshrc"
 
 # - name: Create symbolic link to theme
 #   file:
