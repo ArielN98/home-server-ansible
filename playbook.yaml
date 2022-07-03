@@ -5,6 +5,12 @@
       set_fact:
         user_id: "ariel"
     
+    - name: Install awk
+      become: True
+      pacman:
+        name: "awk"
+        state: "present"
+
     - name: Get user home directory
       changed_when: false
       register: getent
@@ -14,14 +20,13 @@
       set_fact:
         user_home: "{{ getent.stdout }}"
     
-    - name: ping host
-      ansible.builtin.ping:
-    - name: Print Message
-      ansible.builtin.debug:
-        msg: Holii
     - name: Include XOrg task list
-      amsible.builtin.include_tasks: ./roles/xorg.yaml
+      include_tasks: ./roles/xorg.yaml
+    
     - name: Include ZSH task list
-      ansible.builtin.include_tasks: ./roles/zsh.yaml
+      include_tasks: ./roles/zsh.yaml
+    
+    - name: Include OpenBox task list
+      include_tasks: ./roles/openbox.yaml
     
     

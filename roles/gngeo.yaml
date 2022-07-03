@@ -1,8 +1,8 @@
 
 - name: Checkout gngeo repo
-  ansible.builtin.git:
+  git:
     repo: https://github.com/linuxlinks/gngeo.git
     dest: "{{ user_home }}/gngeo"
 
-- name: install gngeo
-  ansible.builtin.shell:
+# - name: install gngeo
+#   shell: echo "wip"
