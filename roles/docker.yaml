@@ -1,0 +1,17 @@
+---
+
+  - name: Install Docker
+    become: yes
+    pacman:
+      name: docker
+      state: latest
+      update_cache: yes
+  
+  - name: Start docker service
+    become: yes
+    service:
+      name: docker.service
+      state: started
+      enabled: yes
+  
+  # possibly add portainer

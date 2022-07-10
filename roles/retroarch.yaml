@@ -1,0 +1,11 @@
+---
+
+  - name: Install RetroArch
+    become: yes
+    pacman:
+      name: "{{ item }}"
+      state: latest
+      update_cache: yes
+    loop:  
+      - retroarch
+      - retroarch-assets-xmb

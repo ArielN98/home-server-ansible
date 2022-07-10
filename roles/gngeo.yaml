@@ -4,5 +4,5 @@
     repo: https://github.com/linuxlinks/gngeo.git
     dest: "{{ user_home }}/gngeo"
 
-# - name: install gngeo
-#   shell: echo "wip"
+- name: install gngeo
+  shell: echo "wip"

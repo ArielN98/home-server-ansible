@@ -29,4 +29,11 @@
     - name: Include OpenBox task list
       include_tasks: ./roles/openbox.yaml
     
+    # - name: Install GnGeo if it is even possible
+    #   include_tasks: ./roles/gngeo.yaml
     
+    - name: Include RetroArch task list
+      include_tasks: ./roles/retroarch.yaml
+
+    - name: Include Docker task list
+      include_tasks: ./roles/docker.yaml
